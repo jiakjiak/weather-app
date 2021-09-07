@@ -1,0 +1,74 @@
+body {
+  background-image: url("src/images/background.png");
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+h1,
+h2 {
+  text-align: left;
+}
+
+h1 {
+  position: relative;
+  top: 15px;
+}
+
+.weatherApp,
+.searchWeather {
+  border: 1px solid rgb(182, 176, 176);
+}
+
+.celcius,
+.fahrenheit,
+.or {
+  font-size: 20px;
+  text-decoration: none;
+  position: relative;
+  top: -15px;
+}
+
+.weatherApp {
+  display: block;
+  margin: 0 auto;
+}
+
+.appBody {
+  padding: 20px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.appText {
+  text-align: center;
+}
+.temperature {
+  text-align: left;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.temperature-type {
+  font-size: 18px;
+  float: right;
+}
+
+.high {
+  font-weight: bolder;
+}
+
+.searchWeather {
+  display: inline;
+}
+
+.weatherPicture {
+  width: 180px;
+  position: relative;
+  top: 60px;
+  float: right;
+}
+
+.fas {
+  font-size: 12px;
+  text-align: right;
+}
