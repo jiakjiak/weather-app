@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/5a9a7ef464.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <title>Weather Today | JK</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="weatherApp shadow-sm p-3 mb-5 mt-5 bg-white rounded w-50 p-3">
+        <div class="appBody">
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col">
+              <form id="search-form">
+                <input
+                  type="search"
+                  placeholder="which city?"
+                  class="searchWeather rounded-pill"
+                  autofocus
+                  id="search-input"
+                />
+                <button
+                  type="submit"
+                  class="btn btn-sm btn-primary rounded-pill"
+                >
+                  <i class="fas fa-search"></i> Search
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-sm btn-secondary rounded-pill"
+                  id="currentLocation"
+                >
+                  <i class="fas fa-map-pin"></i>
+                  Current location
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-8">
+              <h1>HELLO!</h1>
+              <h2>Friday 17:45</h2>
+              <div class="temperature">
+                <span class="currentTemperature" id="currentTemperature"
+                  >30</span
+                >°
+                <a href="#" class="celcius" id="celcius">C </a>
+                <span class="or"> | </span>
+                <a href="#" class="fahrenheit" id="fahrenheit"> F</a>
+              </div>
+
+              <div class="row">
+                <div class="weatherDetails">
+                  <span class="weatherDescription" id="weatherDescription"
+                    >partly cloudy</span
+                  >
+                  <br />
+                  feels like <span class="feelsLike" id="feelsLike"> 29</span>°
+                  <br />
+                  <i class="fas fa-wind"></i><span id="iconWind"> 0</span> km/h
+                  <br />
+                  <i class="fas fa-tint"></i>
+                  <span id="iconHumidity"> 95</span>%
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <img
+                src="src/images/partly cloudy partial.jpg"
+                class="weatherPicture"
+                alt="weather picture"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <p class="appText">
+              <b>5-day forecast</b>
+            </p>
+          </div>
+
+          <div class="row day">
+            <div class="col-2"></div>
+            <div class="col">Sat</div>
+            <div class="col">Sun</div>
+            <div class="col">Mon</div>
+            <div class="col">Tue</div>
+            <div class="col">Wed</div>
+            <div class="col-2"></div>
+          </div>
+          <div class="row icons">
+            <div class="col-2"></div>
+            <div class="col">☀</div>
+            <div class="col">☀</div>
+            <div class="col">⛅</div>
+            <div class="col">⛈</div>
+            <div class="col">⛅</div>
+            <div class="col-2"></div>
+          </div>
+          <div class="row high">
+            <div class="col-2"></div>
+            <div class="col">32°</div>
+            <div class="col">33°</div>
+            <div class="col">31°</div>
+            <div class="col">28°</div>
+            <div class="col">29°</div>
+            <div class="col-2"></div>
+          </div>
+          <div class="row low">
+            <div class="col-2"></div>
+            <div class="col">25°</div>
+            <div class="col">25°</div>
+            <div class="col">24°</div>
+            <div class="col">24°</div>
+            <div class="col">24°</div>
+            <div class="col-2"></div>
+          </div>
+
+          <script src="src/scriptweek4-5.js"></script>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
