@@ -1,3 +1,36 @@
+function forecast(day) {
+  document.querySelector("#dayOneHigh").innerHTML = Math.round(
+    day.data.list[0].main.temp_max
+  );
+  document.querySelector("#dayTwoHigh").innerHTML = Math.round(
+    day.data.list[7].main.temp_max
+  );
+  document.querySelector("#dayThreeHigh").innerHTML = Math.round(
+    day.data.list[15].main.temp_max
+  );
+  document.querySelector("#dayFourHigh").innerHTML = Math.round(
+    day.data.list[23].main.temp_max
+  );
+  document.querySelector("#dayFiveHigh").innerHTML = Math.round(
+    day.data.list[31].main.temp_max
+  );
+  document.querySelector("#dayOneLow").innerHTML = Math.round(
+    day.data.list[0].main.temp_min
+  );
+  document.querySelector("#dayTwoLow").innerHTML = Math.round(
+    day.data.list[7].main.temp_min
+  );
+  document.querySelector("#dayThreeLow").innerHTML = Math.round(
+    day.data.list[15].main.temp_min
+  );
+  document.querySelector("#dayFourLow").innerHTML = Math.round(
+    day.data.list[23].main.temp_min
+  );
+  document.querySelector("#dayFiveLow").innerHTML = Math.round(
+    day.data.list[31].main.temp_min
+  );
+}
+
 function getCurrentLocation() {
   navigator.geolocation.getCurrentPosition(showCurrentLocationTemperature);
 }
@@ -38,7 +71,9 @@ function searchEngine(event) {
     .toUpperCase()
     .trim()}`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&units=metric`; //.value to get input
+  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${city.value}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(weather);
+  axios.get(apiUrlForecast).then(forecast);
 }
 let search = document.querySelector("#search-form");
 search.addEventListener("submit", searchEngine);
