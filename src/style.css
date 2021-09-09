@@ -72,3 +72,16 @@ h1 {
   font-size: 12px;
   text-align: right;
 }
+
+.footer {
+  text-align: center;
+}
+
+.githubLink,
+.linkedinContact {
+  text-decoration: none;
+}
+
+.footer {
+  font-size: 14px;
+}
