@@ -105,8 +105,6 @@ function tempF(event) {
   document.querySelector("#currentTemperature").innerHTML =
     Math.round(fahrenheitLink);
 }
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", tempF);
 
 function formatDate(date) {
   let days = [
@@ -131,6 +129,9 @@ function formatDate(date) {
 }
 
 let apiKey = "56623de7e1f90faf5cccde1396a53f83";
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", tempF);
 
 let now = new Date();
 let currentTime = (document.querySelector("h2").innerHTML = formatDate(now));
