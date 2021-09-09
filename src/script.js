@@ -1,4 +1,15 @@
 function forecast(day) {
+  document.querySelector("#dayOneIcon").innerHTML =
+    day.data.list[0].weather[0].icon;
+  document.querySelector("#dayTwoIcon").innerHTML =
+    day.data.list[7].weather[0].icon;
+  document.querySelector("#dayThreeIcon").innerHTML =
+    day.data.list[15].weather[0].icon;
+  document.querySelector("#dayFourIcon").innerHTML =
+    day.data.list[23].weather[0].icon;
+  document.querySelector("#dayFiveIcon").innerHTML =
+    day.data.list[31].weather[0].icon;
+
   document.querySelector("#dayOneHigh").innerHTML = Math.round(
     day.data.list[0].main.temp_max
   );
@@ -74,6 +85,7 @@ function searchEngine(event) {
   let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${city.value}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(weather);
   axios.get(apiUrlForecast).then(forecast);
+  axios.get(apiUrl).then(tempF);
 }
 let search = document.querySelector("#search-form");
 search.addEventListener("submit", searchEngine);
@@ -87,9 +99,11 @@ celcius.addEventListener("click", tempC);
 
 function tempF(event) {
   event.preventDefault();
-  let currentTempF = (document.querySelector(
-    "#currentTemperature"
-  ).innerHTML = 70);
+  let currentTempF = document.querySelector("#currentTemperature");
+  let fahrenheit = currentTempF.innerHTML;
+  let fahrenheitLink = (fahrenheit * 9) / 5 + 32;
+  document.querySelector("#currentTemperature").innerHTML =
+    Math.round(fahrenheitLink);
 }
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", tempF);
