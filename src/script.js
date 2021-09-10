@@ -73,6 +73,11 @@ function weather(showTemperature) {
   document.querySelector("h1").innerHTML = `HELLO, ${showTemperature.data.name
     .toUpperCase()
     .trim()}`;
+  let currentWeatherIconElement = document.querySelector("#currentWeatherIcon");
+  currentWeatherIconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${showTemperature.data.weather[0].icon}@4x.png`
+  );
 }
 
 function searchEngine(event) {
