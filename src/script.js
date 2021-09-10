@@ -78,6 +78,10 @@ function weather(showTemperature) {
     "src",
     `https://openweathermap.org/img/wn/${showTemperature.data.weather[0].icon}@4x.png`
   );
+  currentWeatherIconElement.setAttribute(
+    "alt",
+    showTemperature.data.weather[0].description
+  );
 }
 
 function searchEngine(event) {
