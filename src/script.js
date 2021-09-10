@@ -61,15 +61,15 @@ function weather(showTemperature) {
   );
   document.querySelector("#weatherDescription").innerHTML =
     showTemperature.data.weather[0].description;
-  document.querySelector("#feelsLike").innerHTML = Math.round(
+  document.querySelector("#feelsLike").innerHTML = `${Math.round(
     showTemperature.data.main.feels_like
-  );
-  document.querySelector("#iconWind").innerHTML = Math.round(
+  )}°`;
+  document.querySelector("#iconWind").innerHTML = `${Math.round(
     showTemperature.data.wind.speed
-  );
-  document.querySelector("#iconHumidity").innerHTML = Math.round(
+  )}km/h`;
+  document.querySelector("#iconHumidity").innerHTML = `${Math.round(
     showTemperature.data.main.humidity
-  );
+  )}%`;
   document.querySelector("h1").innerHTML = `HELLO, ${showTemperature.data.name
     .toUpperCase()
     .trim()}`;
