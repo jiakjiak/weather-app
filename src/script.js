@@ -56,9 +56,9 @@ function showCurrentLocationTemperature(currentTemperature) {
 }
 
 function weather(showTemperature) {
-  document.querySelector("#currentTemperature").innerHTML = Math.round(
-    showTemperature.data.main.temp
-  );
+  celciusTemperature = showTemperature.data.main.temp;
+  document.querySelector("#currentTemperature").innerHTML =
+    Math.round(celciusTemperature);
   document.querySelector("#weatherDescription").innerHTML =
     showTemperature.data.weather[0].description;
   document.querySelector("#feelsLike").innerHTML = `${Math.round(
@@ -101,7 +101,8 @@ search.addEventListener("submit", searchEngine);
 
 function tempC(event) {
   event.preventDefault();
-  document.querySelector("#currentTemperature").innerHTML = 0;
+  let currentTempC = document.querySelector("#currentTemperature");
+  currentTempC.innerHTML = Math.round(celciusTemperature);
 }
 let celcius = document.querySelector("#celcius");
 celcius.addEventListener("click", tempC);
@@ -109,11 +110,12 @@ celcius.addEventListener("click", tempC);
 function tempF(event) {
   event.preventDefault();
   let currentTempF = document.querySelector("#currentTemperature");
-  let fahrenheit = currentTempF.innerHTML;
-  let fahrenheitLink = (fahrenheit * 9) / 5 + 32;
-  document.querySelector("#currentTemperature").innerHTML =
-    Math.round(fahrenheitLink);
+  let fahrenheitLink = (celciusTemperature * 9) / 5 + 32;
+  currentTempF.innerHTML = Math.round(fahrenheitLink);
 }
+let celciusTemperature = null;
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", tempF);
 
 function formatDate(date) {
   let days = [
@@ -138,9 +140,6 @@ function formatDate(date) {
 }
 
 let apiKey = "56623de7e1f90faf5cccde1396a53f83";
-
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", tempF);
 
 let now = new Date();
 let currentTime = (document.querySelector("h2").innerHTML = formatDate(now));
