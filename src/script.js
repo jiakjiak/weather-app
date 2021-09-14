@@ -101,6 +101,8 @@ search.addEventListener("submit", searchEngine);
 
 function tempC(event) {
   event.preventDefault();
+  celcius.classList.add("active");
+  fahrenheit.classList.remove("active");
   let currentTempC = document.querySelector("#currentTemperature");
   currentTempC.innerHTML = Math.round(celciusTemperature);
 }
@@ -109,6 +111,8 @@ celcius.addEventListener("click", tempC);
 
 function tempF(event) {
   event.preventDefault();
+  celcius.classList.remove("active");
+  fahrenheit.classList.add("active");
   let currentTempF = document.querySelector("#currentTemperature");
   let fahrenheitLink = (celciusTemperature * 9) / 5 + 32;
   currentTempF.innerHTML = Math.round(fahrenheitLink);

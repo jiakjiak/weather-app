@@ -85,3 +85,8 @@ h1 {
 .footer {
   font-size: 14px;
 }
+
+.celcius.active {
+  color: #212529;
+  cursor: default;
+}
