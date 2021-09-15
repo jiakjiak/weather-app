@@ -1,5 +1,5 @@
 body {
-  background-image: url("src/images/background.png");
+  background-image: url(../src/images/background.png);
   background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;
@@ -63,8 +63,7 @@ h1 {
 
 .weatherPicture {
   width: 180px;
-  position: relative;
-  top: 60px;
+  position: sticky;
   float: right;
 }
 
@@ -84,6 +83,7 @@ h1 {
 
 .footer {
   font-size: 14px;
+  color: #fff;
 }
 
 .active {
@@ -93,4 +93,16 @@ h1 {
 
 .active:hover {
   color: #212529;
+}
+
+.weatherDescription:first-letter {
+  text-transform: capitalize;
+}
+
+.githubLink {
+  color: #fff;
+}
+
+.githubLink:hover {
+  color: #c6f3ff;
 }

@@ -63,11 +63,11 @@ function weather(showTemperature) {
     showTemperature.data.weather[0].description;
   document.querySelector("#feelsLike").innerHTML = `${Math.round(
     showTemperature.data.main.feels_like
-  )}°`;
-  document.querySelector("#iconWind").innerHTML = `${Math.round(
+  )}°c`;
+  document.querySelector("#iconWind").innerHTML = ` ${Math.round(
     showTemperature.data.wind.speed
   )}km/h`;
-  document.querySelector("#iconHumidity").innerHTML = `${Math.round(
+  document.querySelector("#iconHumidity").innerHTML = ` ${Math.round(
     showTemperature.data.main.humidity
   )}%`;
   document.querySelector("h1").innerHTML = `HELLO, ${showTemperature.data.name
