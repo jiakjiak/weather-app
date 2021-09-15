@@ -90,7 +90,7 @@ function searchEngine(event) {
   document.querySelector("h1").innerHTML = `HELLO, ${city.value
     .toUpperCase()
     .trim()}`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&units=metric`; //.value to get input
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&units=metric`;
   let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${city.value}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(weather);
   axios.get(apiUrlForecast).then(forecast);

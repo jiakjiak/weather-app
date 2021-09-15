@@ -86,7 +86,11 @@ h1 {
   font-size: 14px;
 }
 
-.celcius.active {
+.active {
   color: #212529;
   cursor: default;
+}
+
+.active:hover {
+  color: #212529;
 }
