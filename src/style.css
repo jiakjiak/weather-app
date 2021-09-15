@@ -95,7 +95,7 @@ h1 {
   color: #212529;
 }
 
-.weatherDescription:first-letter {
+.weatherDetails:first-letter {
   text-transform: capitalize;
 }
 
