@@ -1,45 +1,26 @@
-function forecast(day) {
-  document.querySelector("#dayOneIcon").innerHTML =
-    day.data.list[0].weather[0].icon;
-  document.querySelector("#dayTwoIcon").innerHTML =
-    day.data.list[7].weather[0].icon;
-  document.querySelector("#dayThreeIcon").innerHTML =
-    day.data.list[15].weather[0].icon;
-  document.querySelector("#dayFourIcon").innerHTML =
-    day.data.list[23].weather[0].icon;
-  document.querySelector("#dayFiveIcon").innerHTML =
-    day.data.list[31].weather[0].icon;
+function forecast(response) {
+  console.log(response.data.daily);
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  let displayForecast = document.querySelector("#forecast");
+  let forecast = `<div class="row">`;
+  days.forEach(function (day) {
+    forecast =
+      forecast +
+      `
+      <div class="col-2">
+      <div class="col" id="day">${day}</div>
+      <div class="col" id="dayIcon">☀</div>
+      <div class="col" id="dayHigh">32°</div>
+      <div class="col" id="dayLow">25°</div>
+      </div>`;
+  });
+  forecast = forecast + `</div>`;
+  displayForecast.innerHTML = forecast;
+}
 
-  document.querySelector("#dayOneHigh").innerHTML = Math.round(
-    day.data.list[0].main.temp_max
-  );
-  document.querySelector("#dayTwoHigh").innerHTML = Math.round(
-    day.data.list[7].main.temp_max
-  );
-  document.querySelector("#dayThreeHigh").innerHTML = Math.round(
-    day.data.list[15].main.temp_max
-  );
-  document.querySelector("#dayFourHigh").innerHTML = Math.round(
-    day.data.list[23].main.temp_max
-  );
-  document.querySelector("#dayFiveHigh").innerHTML = Math.round(
-    day.data.list[31].main.temp_max
-  );
-  document.querySelector("#dayOneLow").innerHTML = Math.round(
-    day.data.list[0].main.temp_min
-  );
-  document.querySelector("#dayTwoLow").innerHTML = Math.round(
-    day.data.list[7].main.temp_min
-  );
-  document.querySelector("#dayThreeLow").innerHTML = Math.round(
-    day.data.list[15].main.temp_min
-  );
-  document.querySelector("#dayFourLow").innerHTML = Math.round(
-    day.data.list[23].main.temp_min
-  );
-  document.querySelector("#dayFiveLow").innerHTML = Math.round(
-    day.data.list[31].main.temp_min
-  );
+function getForecast(coordinates) {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(forecast);
 }
 
 function getCurrentLocation() {
@@ -82,6 +63,7 @@ function weather(showTemperature) {
     "alt",
     showTemperature.data.weather[0].description
   );
+  getForecast(showTemperature.data.coord);
 }
 
 function searchEngine(event) {
@@ -91,9 +73,7 @@ function searchEngine(event) {
     .toUpperCase()
     .trim()}`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&units=metric`;
-  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${city.value}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(weather);
-  axios.get(apiUrlForecast).then(forecast);
   axios.get(apiUrl).then(tempF);
 }
 let search = document.querySelector("#search-form");
