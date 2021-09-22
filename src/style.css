@@ -72,7 +72,8 @@ h1 {
   text-align: right;
 }
 
-.footer {
+.footer,
+.forecast {
   text-align: center;
 }
 

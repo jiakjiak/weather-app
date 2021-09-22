@@ -9,7 +9,7 @@ function forecast(response) {
   let forecastData = response.data.daily;
 
   let displayForecast = document.querySelector("#forecast");
-  let forecast = `<div class="row">`;
+  let forecast = `<div class="row"><div class="col-1"></div>`;
   forecastData.forEach(function (forecastDay, index) {
     if (index < 5) {
       forecast =
@@ -25,7 +25,7 @@ function forecast(response) {
       </div>`;
     }
   });
-  forecast = forecast + `</div>`;
+  forecast = forecast + `<div class="col-1"></div></div>`;
   displayForecast.innerHTML = forecast;
 }
 
