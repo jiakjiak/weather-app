@@ -58,7 +58,7 @@ function weather(showTemperature) {
   )}°c`;
   document.querySelector("#iconWind").innerHTML = ` ${Math.round(
     showTemperature.data.wind.speed
-  )}km/h`;
+  )} metre/sec`;
   document.querySelector("#iconHumidity").innerHTML = ` ${Math.round(
     showTemperature.data.main.humidity
   )}%`;
