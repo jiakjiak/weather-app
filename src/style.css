@@ -66,6 +66,7 @@ h1 {
   width: 180px;
   position: sticky;
   float: right;
+  animation: bounce 500ms ease infinite alternate;
 }
 
 .fas {
@@ -113,9 +114,29 @@ h1 {
 .coder {
   border-radius: 20px;
   border: 2px white solid;
+  position: relative;
+  animation: float 500ms ease infinite alternate;
 }
 
 .coder:hover {
   border: 0;
   border: 1px white solid;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(2px);
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(7px);
+  }
 }
