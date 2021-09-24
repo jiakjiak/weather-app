@@ -86,6 +86,8 @@ function searchEngine(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(weather);
   axios.get(apiUrl).then(tempF);
+  celcius.classList.add("active");
+  fahrenheit.classList.remove("active");
 }
 let search = document.querySelector("#search-form");
 search.addEventListener("submit", searchEngine);
