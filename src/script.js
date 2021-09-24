@@ -48,6 +48,8 @@ function showCurrentLocationTemperature(currentTemperature) {
 }
 
 function weather(showTemperature) {
+  celcius.classList.add("active");
+  fahrenheit.classList.remove("active");
   celciusTemperature = showTemperature.data.main.temp;
   document.querySelector("#currentTemperature").innerHTML =
     Math.round(celciusTemperature);
@@ -79,6 +81,8 @@ function weather(showTemperature) {
 
 function searchEngine(event) {
   event.preventDefault();
+  celcius.classList.add("active");
+  fahrenheit.classList.remove("active");
   let city = document.querySelector("#search-input");
   document.querySelector("h1").innerHTML = `HELLO, ${city.value
     .toUpperCase()
@@ -86,8 +90,6 @@ function searchEngine(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(weather);
   axios.get(apiUrl).then(tempF);
-  celcius.classList.add("active");
-  fahrenheit.classList.remove("active");
 }
 let search = document.querySelector("#search-form");
 search.addEventListener("submit", searchEngine);
