@@ -32,7 +32,7 @@ List the ready features here:
 
 
 ## Screenshots
-<!--![Example screenshot](./img/screenshot.png)-->
+<img src="./src/images/weather-app.png"/>
 
 
 ## Project Status
